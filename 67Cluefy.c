@@ -1,0 +1,19 @@
+//中序对二叉树进行线索化
+void InThreading(BiThrTree p){
+        //如果当前结点存在
+        if(p){
+                InThreading(p->lchild);//递归当前节点的左子树，进行线索化
+                //如果当前结点没有左孩子，左标志位设为1,左指针域指向上一个结点pre
+                if(!p->child){
+                        p->Ltag=Thread;
+                        p->lchild=pre;
+                }
+                //如果pre没有右孩子，右标志位设为1，右指针域指向当前结点
+                if(!pre->rchild){
+                        pre->Rtag=Thread;
+                        pre->rchild=p;
+                }
+                pre=p;//线索化完左子树后，让pre指针指向当前结点
+                InThreading(p->rchild);//递归右子树进行线索化
+        }
+}

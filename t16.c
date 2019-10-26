@@ -2,7 +2,7 @@
 int selectElem (compent *array, int body, char elem){
         int tempBody=body;
         //当游标值为0时，表示链表结束
-        whiel (array[tempBody].cur !=0) {
+        while (array[tempBody].cur !=0) {
                 if (arry[tempBody].data==elem) {
                             
                 return tempBody;
